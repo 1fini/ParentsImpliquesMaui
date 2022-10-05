@@ -1,14 +1,14 @@
-using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace PIUApp.Models;
 
 public class Links
 {
-    public List<Self> self { get; set; }
-    public List<Collection> collection { get; set; }
-    public List<About> about { get; set; }
-    public List<Author> author { get; set; }
-    public List<Reply> replies { get; set; }
+    public List<Self> Self { get; set; }
+    public List<Collection> Collection { get; set; }
+    public List<About> About { get; set; }
+    public List<Author> Author { get; set; }
+    public List<Reply> Replies { get; set; }
 
     [JsonProperty("version-history")]
     public List<VersionHistory> VersionHistory { get; set; }
@@ -24,5 +24,5 @@ public class Links
 
     [JsonProperty("wp:term")]
     public List<WpTerm> WpTerm { get; set; }
-    public List<Cury> curies { get; set; }
+    public List<Cury> Curies { get; set; }
 }

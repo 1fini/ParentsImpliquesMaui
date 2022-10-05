@@ -7,16 +7,16 @@ namespace PIUApp.Models;
 public class Post
 {
     [JsonProperty("date")]
-    DateTime Date { get; set; }
+    public DateTime Date { get; set; }
 
     [JsonProperty("date_gmt")]
-    DateTime DateGmt { get; set; }
+    public DateTime DateGmt { get; set; }
 
     [JsonProperty("guid")]
-    Guid Guid { get; set; }
+    public Guid Guid { get; set; }
 
     [JsonProperty("id")]
-    int Id { get; set; }
+    public int Id { get; set; }
 
     Uri Link { get; set; }
 
@@ -35,7 +35,7 @@ public class Post
     [JsonProperty("generated_slug")]
     string GeneratedSlug { get; set; }
 
-    Title Title { get; set; }
+    public Title Title { get; set; }
 
     Content Content { get; set; }
 

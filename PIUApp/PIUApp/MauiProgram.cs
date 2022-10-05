@@ -1,4 +1,7 @@
-﻿namespace PIUApp;
+﻿using PIUApp.Services;
+using PIUApp.ViewModels;
+
+namespace PIUApp;
 
 public static class MauiProgram
 {
@@ -12,6 +15,12 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+		builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+
+		builder.Services.AddSingleton<BlogService>();
+		builder.Services.AddSingleton<PostsViewModel>();
+		builder.Services.AddSingleton<MainPage>();
 
 		return builder.Build();
 	}
