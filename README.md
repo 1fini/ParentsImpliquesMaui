@@ -3,4 +3,4 @@
 
 ## Goal
 The goal is to display the ParentsImpliques.fr blog articles in the .Net Maui application. 
-The application is based on MVVC
+The application is based on MVVM
