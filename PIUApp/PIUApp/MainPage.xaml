@@ -44,13 +44,13 @@
                                 <Grid Padding="0" ColumnDefinitions="110, 160, *">
 
                                     <Image Aspect="AspectFit"
-                                       Source="{Binding Links.WpFeaturedmedia[0].Data[0].Href}"
+                                       Source="{Binding Links.WpFeaturedmedia[0].Href}"
                                        WidthRequest="96"
                                        HeightRequest="96"/>
 
                                     <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
                                         <Label Text="{Binding Title.rendered}" />
-                                        <Label Text="{Binding Links.WpFeaturedmedia[0].Data[0].Href}"/>
+                                        <Label Text="{Binding Links.WpFeaturedmedia[0].Href}"/>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
