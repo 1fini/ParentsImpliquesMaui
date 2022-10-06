@@ -6,6 +6,8 @@ namespace PIUApp.ViewModels
 {
     public partial class PostsViewModel : BaseViewModel
     {
+        public bool FirstRun { get; set; }
+
         public ObservableCollection<Post> Posts { get; } = new();
         BlogService BlogService;
         IConnectivity connectivity;
@@ -15,9 +17,10 @@ namespace PIUApp.ViewModels
 
         public PostsViewModel(BlogService blogService, IConnectivity connectivity)
         {
-            Title = "Liste des articles";
+            Title = "Articles";
             this.BlogService = blogService;
             this.connectivity = connectivity;
+            this.FirstRun = true;
         }
 
         [RelayCommand]

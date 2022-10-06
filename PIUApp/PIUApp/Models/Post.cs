@@ -20,6 +20,9 @@ public class Post
 
     Uri Link { get; set; }
 
+    [JsonProperty("_links")]
+    public Links Links { get; set; }
+
     DateTime Modified { get; set; }
 
     DateTime ModifiedGMT { get; set; }
@@ -41,7 +44,7 @@ public class Post
 
     Author author { get; set; }
 
-    Excerpt Excerpt { get; set; }
+    public Excerpt Excerpt { get; set; }
 
     [JsonProperty("featured_media")]
     int FeaturedMedia { get; set; }
@@ -57,7 +60,7 @@ public class Post
     bool Sticky { get; set; }
     string Template { get; set; }
 
-    //List<Category> Categories {get;set;}
+    //public List<Category> Categories {get;set;}
 
     //List<Tag> Tag {get;set;}
 
