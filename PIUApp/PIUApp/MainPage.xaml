@@ -50,7 +50,7 @@
 
                                     <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
                                         <Label Text="{Binding Title.rendered}" />
-                                        <Label Text="{Binding Links.WpFeaturedmedia[0].Href}"/>
+                                        <Label Text="{Binding Links.WpFeaturedmedia[0].Href}" />
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>

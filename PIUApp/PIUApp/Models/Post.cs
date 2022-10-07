@@ -1,26 +1,25 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace PIUApp.Models;
 
 
 public class Post
 {
-    [JsonProperty("date")]
+    [JsonPropertyName("date")]
     public DateTime Date { get; set; }
 
-    [JsonProperty("date_gmt")]
+    [JsonPropertyName("date_gmt")]
     public DateTime DateGmt { get; set; }
 
-    [JsonProperty("guid")]
+    [JsonPropertyName("guid")]
     public Guid Guid { get; set; }
 
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
 
     Uri Link { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public Links Links { get; set; }
 
     DateTime Modified { get; set; }
@@ -32,10 +31,10 @@ public class Post
     string Status { get; set; }
     string Type { get; set; }
 
-    [JsonProperty("permalink_template")]
+    [JsonPropertyName("permalink_template")]
     string PermalinkTemplate { get; set; }
 
-    [JsonProperty("generated_slug")]
+    [JsonPropertyName("generated_slug")]
     string GeneratedSlug { get; set; }
 
     public Title Title { get; set; }
@@ -46,13 +45,13 @@ public class Post
 
     public Excerpt Excerpt { get; set; }
 
-    [JsonProperty("featured_media")]
+    [JsonPropertyName("featured_media")]
     int FeaturedMedia { get; set; }
 
-    [JsonProperty("comment_status")]
+    [JsonPropertyName("comment_status")]
     string CommentStatus { get; set; }
 
-    [JsonProperty("ping_status")]
+    [JsonPropertyName("ping_status")]
     string PingStatus { get; set; }
 
     string Format { get; set; }

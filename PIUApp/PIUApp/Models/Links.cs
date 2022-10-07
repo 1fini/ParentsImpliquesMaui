@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace PIUApp.Models;
 
@@ -10,19 +10,19 @@ public class Links
     public List<Author> Author { get; set; }
     public List<Reply> Replies { get; set; }
 
-    [JsonProperty("version-history")]
+    [JsonPropertyName("version-history")]
     public List<VersionHistory> VersionHistory { get; set; }
 
-    [JsonProperty("predecessor-version")]
+    [JsonPropertyName("predecessor-version")]
     public List<PredecessorVersion> PredecessorVersion { get; set; }
 
-    [JsonProperty("wp:featuredmedia")]
+    [JsonPropertyName("wp:featuredmedia")]
     public List<WpFeaturedmedium> WpFeaturedmedia { get; set; }
 
-    [JsonProperty("wp:attachment")]
+    [JsonPropertyName("wp:attachment")]
     public List<WpAttachment> WpAttachment { get; set; }
 
-    [JsonProperty("wp:term")]
+    [JsonPropertyName("wp:term")]
     public List<WpTerm> WpTerm { get; set; }
     public List<Cury> Curies { get; set; }
 }
