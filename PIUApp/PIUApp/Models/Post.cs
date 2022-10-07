@@ -39,14 +39,14 @@ public class Post
 
     public Title Title { get; set; }
 
-    Content Content { get; set; }
+    public Content Content { get; set; }
 
-    Author author { get; set; }
+    public int Author { get; set; }
 
     public Excerpt Excerpt { get; set; }
 
     [JsonPropertyName("featured_media")]
-    int FeaturedMedia { get; set; }
+    public int FeaturedMedia { get; set; }
 
     [JsonPropertyName("comment_status")]
     string CommentStatus { get; set; }
@@ -63,8 +63,7 @@ public class Post
 
     //List<Tag> Tag {get;set;}
 
-
-
+    public string ImageUrl { get; set; }
 }
 
 

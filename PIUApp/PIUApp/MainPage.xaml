@@ -40,17 +40,23 @@
                 <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Post">
                     <Grid Padding="10">
-                        <Frame HeightRequest="125">
-                                <Grid Padding="0" ColumnDefinitions="110, 160, *">
+                        <Frame HeightRequest="160">
+                                <Grid Padding="0" ColumnDefinitions="125,*">
 
-                                    <Image Aspect="AspectFit"
-                                       Source="{Binding Links.WpFeaturedmedia[0].Href}"
-                                       WidthRequest="96"
-                                       HeightRequest="96"/>
+                                    <Image Aspect="AspectFill"    
+                                       Source="{Binding ImageUrl}"
+                                       HeightRequest="125"
+                                       WidthRequest="125"/>
 
-                                    <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
-                                        <Label Text="{Binding Title.rendered}" />
-                                        <Label Text="{Binding Links.WpFeaturedmedia[0].Href}" />
+                                    <VerticalStackLayout Grid.Column="1" Padding="0" VerticalOptions="Center">
+                                        <Label 
+                                            FontSize="Subtitle" 
+                                            Text="{Binding Title.Rendered}" 
+                                            />
+                                        <Label 
+                                            FontSize="Small"
+                                            Text="{Binding Excerpt.rendered}"
+                                            />
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>

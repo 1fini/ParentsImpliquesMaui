@@ -1,4 +1,3 @@
-using PIUApp.Models;
 using System.Net.Http.Json;
 
 namespace PIUApp.Services;
@@ -8,6 +7,7 @@ public class BlogService
     private readonly string BASE_ADDRESS = @"https://www.parentsimpliques.fr/wp-json/wp/v2/";
     HttpClient Client { get; set; }
     List<Post> postsList;
+    Media media;
 
     public BlogService()
     {
@@ -27,6 +27,20 @@ public class BlogService
         }
 
         return postsList;
+    }
+
+    public async Task<Media> GetFeaturedMedia(int mediaId)
+    {
+        if (mediaId == 0)
+            return null;
+
+        var response = await Client.GetAsync($"media/{mediaId}");
+        if (response.IsSuccessStatusCode)
+        {
+            media = await response.Content.ReadFromJsonAsync<Media>();
+        }
+
+        return media;
     }
 
 }

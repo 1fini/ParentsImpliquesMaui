@@ -45,8 +45,10 @@ namespace PIUApp.ViewModels
                     Posts.Clear();
 
                 foreach (var post in posts)
+                {
+                    post.ImageUrl = (await BlogService.GetFeaturedMedia(post.FeaturedMedia))?.source_url;
                     Posts.Add(post);
-
+                }
             }
             catch (Exception ex)
             {

@@ -4,26 +4,26 @@ namespace PIUApp;
 
 public partial class MainPage : ContentPage
 {
-	PostsViewModel viewModel;
+    PostsViewModel viewModel;
 
-	public MainPage(PostsViewModel viewModel)
-	{
-		InitializeComponent();
-		this.viewModel = viewModel;
-		BindingContext = viewModel;
-	}
+    public MainPage(PostsViewModel viewModel)
+    {
+        InitializeComponent();
+        this.viewModel = viewModel;
+        BindingContext = viewModel;
+    }
 
-	protected override async void OnAppearing()
-	{
-		postsCollection.ItemsSource = viewModel.Posts;
+    protected override async void OnAppearing()
+    {
+        postsCollection.ItemsSource = viewModel.Posts;
 
-		if (viewModel.FirstRun && viewModel.GetPostsCommand.CanExecute(null))
-		{
-			await viewModel.GetPostsCommand.ExecuteAsync(null);
-			viewModel.FirstRun = false;
-		}
+        if (viewModel.FirstRun && viewModel.GetPostsCommand.CanExecute(null))
+        {
+            await viewModel.GetPostsCommand.ExecuteAsync(null);
+            viewModel.FirstRun = false;
+        }
 
-		base.OnAppearing();
-	}
+        base.OnAppearing();
+    }
 }
 
