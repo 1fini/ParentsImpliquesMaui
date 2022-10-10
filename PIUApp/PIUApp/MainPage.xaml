@@ -24,7 +24,6 @@
             <CollectionView
                 x:Name="postsCollection"
                 SelectionMode="None">
-
                 <CollectionView.EmptyView>
                     <StackLayout VerticalOptions="Center" 
                                  HorizontalOptions="Center"
@@ -40,7 +39,12 @@
                 <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Post">
                     <Grid Padding="8">
-                        <Frame HeightRequest="160">
+                        <Frame HeightRequest="125">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:PostsViewModel}}, Path=GoToDetailsCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
                                 <Grid Padding="0" ColumnDefinitions="125,*" ColumnSpacing="10">
                                     <Frame Margin="0" CornerRadius="5">
                                     <Image Aspect="AspectFill"

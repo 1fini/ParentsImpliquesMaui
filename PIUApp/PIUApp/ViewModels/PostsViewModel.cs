@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using PIUApp.Services;
-
+using PIUApp.Views;
 
 namespace PIUApp.ViewModels
 {
@@ -61,6 +61,18 @@ namespace PIUApp.ViewModels
                 IsRefreshing = false;
             }
 
+        }
+
+        [RelayCommand]
+        async Task GoToDetails(Post post)
+        {
+            if (post == null)
+                return;
+
+            await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
+        {
+            {"Post", post }
+        });
         }
     }
 }
