@@ -53,10 +53,13 @@
                                             FontSize="Subtitle" 
                                             Text="{Binding Title.Rendered}" 
                                             />
-                                        <Label 
-                                            FontSize="Small"
-                                            Text="{Binding Excerpt.rendered}"
-                                            />
+                                        <WebView>
+                                            <WebView.Source>
+                                                <HtmlWebViewSource>
+                                                    <HtmlWebViewSource.Html Source = "{Binding Excerpt.Rendered}" />
+                                                </HtmlWebViewSource>
+                                            </WebView.Source>
+                                        </WebView>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
