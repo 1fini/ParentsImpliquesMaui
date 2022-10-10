@@ -39,27 +39,27 @@
 
                 <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Post">
-                    <Grid Padding="10">
+                    <Grid Padding="8">
                         <Frame HeightRequest="160">
-                                <Grid Padding="0" ColumnDefinitions="125,*">
-
-                                    <Image Aspect="AspectFill"    
+                                <Grid Padding="0" ColumnDefinitions="125,*" ColumnSpacing="10">
+                                    <Frame Margin="0" CornerRadius="5">
+                                    <Image Aspect="AspectFill"
                                        Source="{Binding ImageUrl}"
                                        HeightRequest="125"
                                        WidthRequest="125"/>
+                                    </Frame>
 
-                                    <VerticalStackLayout Grid.Column="1" Padding="0" VerticalOptions="Center">
-                                        <Label 
-                                            FontSize="Subtitle" 
+                                    <VerticalStackLayout Grid.Column="1" Padding="5" VerticalOptions="CenterAndExpand">
+                                        <Label
+                                            FontSize="Subtitle"
+                                            FontAttributes="Bold"
                                             Text="{Binding Title.Rendered}" 
                                             />
-                                        <WebView>
+                                        <!--<WebView>
                                             <WebView.Source>
-                                                <HtmlWebViewSource>
-                                                    <HtmlWebViewSource.Html Source = "{Binding Excerpt.Rendered}" />
-                                                </HtmlWebViewSource>
+                                                <HtmlWebViewSource Html="{Binding Excerpt.rendered}"/>
                                             </WebView.Source>
-                                        </WebView>
+                                        </WebView>-->
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
