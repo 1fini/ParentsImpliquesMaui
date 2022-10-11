@@ -10,7 +10,6 @@ namespace PIUApp.ViewModels
         [ObservableProperty]
         Post post;
 
-
         [ObservableProperty]
         bool isRefreshing;
 
