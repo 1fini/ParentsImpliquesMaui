@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using PIUApp.Services;
-using PIUApp.Views;
 
 namespace PIUApp.ViewModels
 {

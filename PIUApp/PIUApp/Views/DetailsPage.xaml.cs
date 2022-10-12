@@ -1,6 +1,6 @@
 using PIUApp.ViewModels;
 
-namespace PIUApp.Views;
+namespace PIUApp;
 
 public partial class DetailsPage : ContentPage
 {

@@ -4,7 +4,7 @@
              x:Class="PIUApp.DetailsPage"
              xmlns:viewmodel="clr-namespace:PIUApp.ViewModels"
              x:DataType="viewmodel:PostDetailsViewModel"
-             Title="{Binding Post.Title}">
+             Title="{Binding Post.Title.Rendered}">
 
     <ScrollView>
         <VerticalStackLayout>
@@ -19,21 +19,28 @@
                         Grid.Column="1"
                         HeightRequest="160"
                         WidthRequest="160"
-                        CornerRadius="80"
+                        CornerRadius="20"
                         HorizontalOptions="Center"
                         IsClippedToBounds="True"
                         Padding="0"
                         Margin="0,80,0,0">
 
                     <Image HeightRequest="160"
-                            WidthRequest="160"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"
-                            Source="{Binding Post.ImageUrl}"/>
+                           WidthRequest="160"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Source="{Binding Post.ImageUrl}"/>
                 </Frame>
             </Grid>
             <VerticalStackLayout Padding="10" Spacing="10">
-                <Label Text="{Binding Post.Title}"/>
+                <Label Text="{Binding Post.Author}"/>
+                <Label Text="{Binding Post.Date}"/>
+                <WebView>
+                    <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding Post.Content.rendered}"/>
+                    </WebView.Source>
+                </WebView>
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
