@@ -1,8 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using PIUApp.Services;
-
-
-namespace PIUApp.ViewModels
+﻿namespace PIUApp.ViewModels
 {
     [QueryProperty(nameof(Post), "Post")]
     public partial class PostDetailsViewModel : BaseViewModel
