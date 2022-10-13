@@ -36,7 +36,10 @@
             <VerticalStackLayout Padding="10" Spacing="10">
                 <Label Text="{Binding Post.Author}"/>
                 <Label Text="{Binding Post.Date}"/>
-                <WebView>
+                <WebView 
+                    HeightRequest="160"
+                    WidthRequest="160"
+                    >
                     <WebView.Source>
                         <HtmlWebViewSource Html="{Binding Post.Content.rendered}"/>
                     </WebView.Source>
