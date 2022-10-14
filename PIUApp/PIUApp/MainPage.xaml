@@ -45,28 +45,28 @@
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:PostsViewModel}}, Path=GoToDetailsCommand}"
                                     CommandParameter="{Binding .}"/>
                             </Frame.GestureRecognizers>
-                                <Grid Padding="0" ColumnDefinitions="125,*" ColumnSpacing="10">
-                                    <Frame Margin="0" CornerRadius="5">
-                                    <Image Aspect="AspectFill"
-                                       Source="{Binding ImageUrl}"
-                                       HeightRequest="125"
-                                       WidthRequest="125"/>
-                                    </Frame>
+                            <Grid Padding="0" ColumnDefinitions="125,*" ColumnSpacing="10">
+                                <Frame Margin="0" CornerRadius="5">
+                                <Image Aspect="AspectFill"
+                                    Source="{Binding ImageUrl}"
+                                    HeightRequest="125"
+                                    WidthRequest="125"/>
+                                </Frame>
 
-                                    <VerticalStackLayout Grid.Column="1" Padding="5" VerticalOptions="CenterAndExpand">
-                                        <Label
-                                            FontSize="Subtitle"
-                                            FontAttributes="Bold"
-                                            Text="{Binding Title.Rendered}" 
-                                            />
-                                        <!--<WebView>
-                                            <WebView.Source>
-                                                <HtmlWebViewSource Html="{Binding Excerpt.rendered}"/>
-                                            </WebView.Source>
-                                        </WebView>-->
-                                    </VerticalStackLayout>
-                                </Grid>
-                            </Frame>
+                                <VerticalStackLayout Grid.Column="1" Padding="5" VerticalOptions="CenterAndExpand">
+                                    <Label
+                                        FontSize="Subtitle"
+                                        FontAttributes="Bold"
+                                        Text="{Binding Title.Rendered}" 
+                                        />
+                                    <HorizontalStackLayout Margin="10" Spacing="15">
+                                        <Label Text="{Binding Date, StringFormat='Publié le {0:dd/MM/yyyy}'} "/>
+                                        <Label Text="{Binding Links.Author[0].href}"/>
+                                    </HorizontalStackLayout>
+                                        
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
