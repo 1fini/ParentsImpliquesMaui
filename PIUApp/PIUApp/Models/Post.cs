@@ -1,24 +1,26 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace PIUApp.Models;
 
 
 public class Post
 {
-    [JsonProperty("date")]
-    DateTime Date { get; set; }
+    [JsonPropertyName("date")]
+    public DateTime Date { get; set; }
 
-    [JsonProperty("date_gmt")]
-    DateTime DateGmt { get; set; }
+    [JsonPropertyName("date_gmt")]
+    public DateTime DateGmt { get; set; }
 
-    [JsonProperty("guid")]
-    Guid Guid { get; set; }
+    [JsonPropertyName("guid")]
+    public Guid Guid { get; set; }
 
-    [JsonProperty("id")]
-    int Id { get; set; }
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
 
     Uri Link { get; set; }
+
+    [JsonPropertyName("_links")]
+    public Links Links { get; set; }
 
     DateTime Modified { get; set; }
 
@@ -29,27 +31,27 @@ public class Post
     string Status { get; set; }
     string Type { get; set; }
 
-    [JsonProperty("permalink_template")]
+    [JsonPropertyName("permalink_template")]
     string PermalinkTemplate { get; set; }
 
-    [JsonProperty("generated_slug")]
+    [JsonPropertyName("generated_slug")]
     string GeneratedSlug { get; set; }
 
-    Title Title { get; set; }
+    public Title Title { get; set; }
 
-    Content Content { get; set; }
+    public Content Content { get; set; }
 
-    Author author { get; set; }
+    public int Author { get; set; }
 
-    Excerpt Excerpt { get; set; }
+    public Excerpt Excerpt { get; set; }
 
-    [JsonProperty("featured_media")]
-    int FeaturedMedia { get; set; }
+    [JsonPropertyName("featured_media")]
+    public int FeaturedMedia { get; set; }
 
-    [JsonProperty("comment_status")]
+    [JsonPropertyName("comment_status")]
     string CommentStatus { get; set; }
 
-    [JsonProperty("ping_status")]
+    [JsonPropertyName("ping_status")]
     string PingStatus { get; set; }
 
     string Format { get; set; }
@@ -57,12 +59,11 @@ public class Post
     bool Sticky { get; set; }
     string Template { get; set; }
 
-    //List<Category> Categories {get;set;}
+    //public List<Category> Categories {get;set;}
 
     //List<Tag> Tag {get;set;}
 
-
-
+    public string ImageUrl { get; set; }
 }
 
 

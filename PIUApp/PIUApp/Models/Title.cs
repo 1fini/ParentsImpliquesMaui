@@ -1,4 +1,5 @@
+namespace PIUApp.Models;
 public class Title
 {
-    public string rendered { get; set; }
+    public string Rendered { get; set; }
 }

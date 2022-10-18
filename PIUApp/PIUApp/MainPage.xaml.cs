@@ -1,24 +1,29 @@
-﻿namespace PIUApp;
+﻿using PIUApp.ViewModels;
+
+namespace PIUApp;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    PostsViewModel viewModel;
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage(PostsViewModel viewModel)
+    {
+        InitializeComponent();
+        this.viewModel = viewModel;
+        BindingContext = viewModel;
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    protected override async void OnAppearing()
+    {
+        postsCollection.ItemsSource = viewModel.Posts;
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        if (viewModel.FirstRun && viewModel.GetPostsCommand.CanExecute(null))
+        {
+            await viewModel.GetPostsCommand.ExecuteAsync(null);
+            viewModel.FirstRun = false;
+        }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        base.OnAppearing();
+    }
 }
 

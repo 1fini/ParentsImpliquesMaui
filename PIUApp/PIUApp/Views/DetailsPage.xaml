@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PIUApp.DetailsPage"
+             xmlns:viewmodel="clr-namespace:PIUApp.ViewModels"
+             x:DataType="viewmodel:PostDetailsViewModel"
+             Title="{Binding Post.Title.Rendered}">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*,Auto,*"
+                  RowDefinitions="160, Auto">
+
+               <BoxView Grid.ColumnSpan="3"
+                        HeightRequest="160"
+                        HorizontalOptions="FillAndExpand"/>
+
+                <Frame Grid.RowSpan="2"
+                        Grid.Column="1"
+                        HeightRequest="160"
+                        WidthRequest="160"
+                        CornerRadius="20"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        Padding="0"
+                        Margin="0,80,0,0">
+
+                    <Image HeightRequest="160"
+                           WidthRequest="160"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Source="{Binding Post.ImageUrl}"/>
+                </Frame>
+            </Grid>
+            <VerticalStackLayout Padding="5" Spacing="5">
+                <WebView 
+                    WidthRequest="600"
+                    HeightRequest="600">
+                    <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding Post.Content.rendered}"/>
+                    </WebView.Source>
+                </WebView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

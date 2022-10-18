@@ -1,5 +1,7 @@
+namespace PIUApp.Models;
+
 public class WpFeaturedmedium
 {
-    public bool embeddable { get; set; }
-    public string href { get; set; }
+    public bool Embeddable { get; set; }
+    public string Href { get; set; }
 }
