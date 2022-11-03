@@ -9,37 +9,21 @@
             Title="{Binding Title}"
             x:DataType="viewmodel:PostsViewModel">
 
-    <Grid 
-        ColumnDefinitions="*,*"
-        ColumnSpacing="5"
-        RowDefinitions="*,Auto"
-        RowSpacing="0">
-
-        <RefreshView
-            Grid.ColumnSpan="2"
-            Command="{Binding GetPostsCommand}"
-            IsRefreshing="{Binding IsRefreshing}">
-
-
-            <CollectionView
-                x:Name="postsCollection"
-                SelectionMode="None">
-                <CollectionView.EmptyView>
-                    <StackLayout VerticalOptions="Center" 
-                                 HorizontalOptions="Center"
-                                 HeightRequest="200"
-                                 WidthRequest="200"
-                                 IsVisible="{Binding IsNotBusy}">
-                        <Label Text="Aucun produit trouvé"
-                               HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </CollectionView.EmptyView>
-
-                <CollectionView.ItemTemplate>
+    <VerticalStackLayout>
+        <Border>
+            <VerticalStackLayout Padding="5">
+                <Label FontSize="Medium" FontAttributes="Bold" Text="Recherche par mot clé"/>
+                <Entry x:Name="entry"
+                        Placeholder="Enter text"
+                        TextChanged="OnEntryTextChanged"
+                        Completed="OnEntryCompleted" VerticalOptions="StartAndExpand"/>
+            </VerticalStackLayout>
+        </Border>
+        <CarouselView x:Name="carouselList">
+            <CarouselView.ItemTemplate>
                 <DataTemplate x:DataType="model:Post">
                     <Grid Padding="8">
-                        <Frame HeightRequest="125">
+                        <Frame HeightRequest="250">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:PostsViewModel}}, Path=GoToDetailsCommand}"
@@ -47,7 +31,7 @@
                             </Frame.GestureRecognizers>
                             <Grid Padding="0" ColumnDefinitions="125,*" ColumnSpacing="10">
                                 <Frame Margin="0" CornerRadius="5">
-                                <Image Aspect="AspectFill"
+                                    <Image Aspect="Fill"
                                     Source="{Binding ImageUrl}"
                                     HeightRequest="125"
                                     WidthRequest="125"/>
@@ -60,27 +44,90 @@
                                         Text="{Binding Title.Rendered}" 
                                         />
                                     <HorizontalStackLayout Margin="10" Spacing="15">
-                                        <Label Text="{Binding Date, StringFormat='Publié le {0:dd/MM/yyyy}'} "/>
-                                        <Label Text="{Binding Links.Author[0].href}"/>
+                                        <!--<Label Text="{Binding Date, StringFormat='Publié le {0:dd/MM/yyyy}'} "/>
+                                        <Label Text="{Binding Links.Author[0].href}"/>-->
                                     </HorizontalStackLayout>
-                                        
+
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>
                     </Grid>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <Grid 
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
 
-            </CollectionView>
-        </RefreshView>
+            <RefreshView
+            Grid.ColumnSpan="2"
+            Command="{Binding GetPostsCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
 
-        <ActivityIndicator IsVisible="{Binding IsBusy}"
+
+                <CollectionView
+                x:Name="postsCollection"
+                SelectionMode="None">
+                    <CollectionView.EmptyView>
+                        <StackLayout VerticalOptions="Center" 
+                                 HorizontalOptions="Center"
+                                 HeightRequest="200"
+                                 WidthRequest="200"
+                                 IsVisible="{Binding IsNotBusy}">
+                            <Label Text="Aucun produit trouvé"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Post">
+                            <Grid Padding="8">
+                                <Frame HeightRequest="125">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:PostsViewModel}}, Path=GoToDetailsCommand}"
+                                    CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid Padding="0" ColumnDefinitions="125,*" ColumnSpacing="10">
+                                        <Frame Margin="0" CornerRadius="5">
+                                            <Image Aspect="AspectFill"
+                                    Source="{Binding ImageUrl}"
+                                    HeightRequest="125"
+                                    WidthRequest="125"/>
+                                        </Frame>
+
+                                        <VerticalStackLayout Grid.Column="1" Padding="5" VerticalOptions="CenterAndExpand">
+                                            <Label
+                                        FontSize="Subtitle"
+                                        FontAttributes="Bold"
+                                        Text="{Binding Title.Rendered}" 
+                                        />
+                                            <HorizontalStackLayout Margin="10" Spacing="15">
+                                                <Label Text="{Binding Date, StringFormat='Publié le {0:dd/MM/yyyy}'} "/>
+                                                <Label Text="{Binding Links.Author[0].href}"/>
+                                            </HorizontalStackLayout>
+
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+            </RefreshView>
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="CenterAndExpand"
                            Grid.RowSpan="2"
                            Grid.ColumnSpan="2"/>
 
-    </Grid>
+        </Grid>
+    </VerticalStackLayout>
 
 </ContentPage>
