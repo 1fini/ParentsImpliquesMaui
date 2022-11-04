@@ -23,6 +23,7 @@ public static class MauiProgram
         builder.Services.AddTransient<PostDetailsViewModel>();
 
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<HomePage>();
         builder.Services.AddTransient<DetailsPage>();
 
         return builder.Build();

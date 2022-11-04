@@ -6,6 +6,9 @@ namespace PIUApp;
 public partial class MainPage : ContentPage
 {
     PostsViewModel viewModel;
+
+    public MainPage() { }
+
     public MainPage(PostsViewModel viewModel)
     {
         InitializeComponent();
