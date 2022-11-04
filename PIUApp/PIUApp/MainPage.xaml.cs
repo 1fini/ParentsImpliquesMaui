@@ -1,11 +1,12 @@
 ﻿using PIUApp.ViewModels;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PIUApp;
 
 public partial class MainPage : ContentPage
 {
     PostsViewModel viewModel;
+
+    public MainPage() { }
     public MainPage(PostsViewModel viewModel)
     {
         InitializeComponent();
