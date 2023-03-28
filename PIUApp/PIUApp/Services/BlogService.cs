@@ -42,5 +42,4 @@ public class BlogService
 
         return media;
     }
-
 }

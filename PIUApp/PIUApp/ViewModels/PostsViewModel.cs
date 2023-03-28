@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using PIUApp.Services;
+using System.Text;
+using System.Text.Encodings.Web;
 
 namespace PIUApp.ViewModels
 {
@@ -46,6 +48,7 @@ namespace PIUApp.ViewModels
                 foreach (var post in posts)
                 {
                     post.ImageUrl = (await BlogService.GetFeaturedMedia(post.FeaturedMedia))?.source_url;
+                    post.Title.Rendered = post.Title.Rendered;
                     Posts.Add(post);
                 }
             }
@@ -69,9 +72,9 @@ namespace PIUApp.ViewModels
                 return;
 
             await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
-        {
-            {"Post", post }
-        });
+            {
+                {"Post", post }
+            });
         }
     }
 }

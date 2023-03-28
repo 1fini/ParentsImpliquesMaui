@@ -19,7 +19,7 @@
                         Completed="OnEntryCompleted" VerticalOptions="StartAndExpand"/>
             </VerticalStackLayout>
         </Border>
-        <CarouselView x:Name="carouselList">
+        <!--<CarouselView x:Name="carouselList">
             <CarouselView.ItemTemplate>
                 <DataTemplate x:DataType="model:Post">
                     <Grid Padding="8">
@@ -44,8 +44,8 @@
                                         Text="{Binding Title.Rendered}" 
                                         />
                                     <HorizontalStackLayout Margin="10" Spacing="15">
-                                        <!--<Label Text="{Binding Date, StringFormat='Publié le {0:dd/MM/yyyy}'} "/>
-                                        <Label Text="{Binding Links.Author[0].href}"/>-->
+                                        --><!--<Label Text="{Binding Date, StringFormat='Publié le {0:dd/MM/yyyy}'} "/>
+                                        <Label Text="{Binding Links.Author[0].href}"/>--><!--
                                     </HorizontalStackLayout>
 
                                 </VerticalStackLayout>
@@ -54,7 +54,7 @@
                     </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
-        </CarouselView>
+        </CarouselView>-->
         <Grid 
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
